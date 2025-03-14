@@ -10,8 +10,8 @@ const statusDiv = document.getElementById("status");
 const changeUI = (status = "acquired") => {
     const isActive = status === "acquired";
     wakeButton.dataset.status = isActive ? "on" : "off";
-    wakeButton.textContent = `Αφυπνιση ${isActive ? "ΕΝΕΡΓΗ" : "ΑΝΕΝΕΡΓΗ"}`;
-    statusElem.textContent = `Το κλειδωμα ${isActive ? "ενεργοποιήθηκε!" : "απενεργοποιήθηκε."}`;
+    wakeButton.textContent = `Turn Wake Lock ${isActive ? "OFF" : "ON"}`;
+    statusElem.textContent = `Wake Lock ${isActive ? "is active!" : "has been released."}`;
 
     // Update status container styles
     statusDiv.classList.toggle("bg-success", isActive);
@@ -44,7 +44,7 @@ if (isSupported) {
             });
         } catch (err) {
             wakeButton.dataset.status = "off";
-            wakeButton.textContent = "Ενεργοποίηση";
+            wakeButton.textContent = "Turn Wake Lock ON";
             statusElem.textContent = `${err.name}, ${err.message}`;
         }
     };
@@ -58,21 +58,25 @@ if (isSupported) {
         }
     });
 
-    // Handle wake lock reactivation
+    // Handle wake lock reactivation when window regains focus
     const handleVisibilityChange = () => {
-        if (wakeLock !== null && document.visibilityState === "visible") {
+        if (reaquireCheck.checked && document.visibilityState === "visible") {
             requestWakeLock();
         }
     };
 
-    // Change background to red if wake lock is inactive and page loses focus
+    // Update Wake Lock Status colors when reactivating Wake Lock
     document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden" && wakeButton.dataset.status === "off") {
             statusDiv.classList.remove("bg-success");
             statusDiv.classList.add("bg-danger");
+        } else if (document.visibilityState === "visible" && wakeButton.dataset.status === "on") {
+            statusDiv.classList.remove("bg-danger");
+            statusDiv.classList.add("bg-success");
         }
     });
 
+    // Enable or disable wake lock reacquisition
     reaquireCheck.addEventListener("change", () => {
         if (reaquireCheck.checked) {
             document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -81,4 +85,3 @@ if (isSupported) {
         }
     });
 }
-
