@@ -10,7 +10,7 @@ const statusDiv = document.getElementById("status");
 const changeUI = (status = "acquired") => {
     const isActive = status === "acquired";
     wakeButton.dataset.status = isActive ? "on" : "off";
-    wakeButton.textContent = `Ενεργοποίηση ${isActive ? "OFF" : "ON"}`;
+    wakeButton.textContent = `Ενεργοποίηση ${isActive ? "ΕΚΤΟΣ" : "ΕΝΤΟΣ"}`;
     statusElem.textContent = `Wake Lock ${isActive ? "is active!" : "has been released."}`;
 
     // Update status container styles
@@ -44,7 +44,7 @@ if (isSupported) {
             });
         } catch (err) {
             wakeButton.dataset.status = "off";
-            wakeButton.textContent = "Turn Wake Lock ON";
+            wakeButton.textContent = "Ενεργοποίηση";
             statusElem.textContent = `${err.name}, ${err.message}`;
         }
     };
