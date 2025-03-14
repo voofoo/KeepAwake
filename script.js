@@ -11,7 +11,7 @@ const changeUI = (status = "acquired") => {
     const isActive = status === "acquired";
     wakeButton.dataset.status = isActive ? "on" : "off";
     wakeButton.textContent = `Ενεργοποίηση ${isActive ? "ΕΚΤΟΣ" : "ΕΝΤΟΣ"}`;
-    statusElem.textContent = `Wake Lock ${isActive ? "is active!" : "has been released."}`;
+    statusElem.textContent = `Το κλειδωμα ${isActive ? "ενεργοποιήθηκε!" : "απενεργοποιήθηκε."}`;
 
     // Update status container styles
     statusDiv.classList.toggle("bg-success", isActive);
