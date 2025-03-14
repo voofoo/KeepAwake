@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KeepAwake</title>
+
+    <!-- Bootstrap & Normalize CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Section -->
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-md-between py-3 mb-4 border-bottom">
+            <nav>
+                <ul class="nav col-12 col-md-auto mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-primary">KeepAwake</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container px-1 text-center flex-grow-1">
+        <!-- Wake Lock Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-alarm" viewBox="0 0 16 16">
+            <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z"/>
+            <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1"/>
+        </svg>
+
+        <h1 class="display-5 fw-bold text-body-emphasis">Keep Awake</h1>
+        <p class="lead mb-2 text-primary">An app to keep your device awake</p>
+
+        <div class="col-lg-6 mx-auto">
+            <!-- Wake Lock Toggle Button -->
+            <button class="btn btn-lg btn-primary w-75 mb-2 px-4" type="button" data-status="off">Turn Wake Lock ON</button>
+
+            <!-- Wake Lock Status -->
+            <div id="status" class="container w-75 mt-2 p-3 border border-3 border-warning rounded mb-3">
+                <h2>Wake Lock Status</h2>
+                <p class="ps-3"></p>
+            </div>
+
+            <!-- Wake Lock Auto Reactivation -->
+            <div class="container w-75 bg-white text-primary border border-3 border-primary rounded p-3 position-sticky" style="bottom: 5px;">
+                <p class="border-bottom pb-2">Μολις το παράθυρο φυγει απο το προσκηνιο, η λειτουργια θα απενεργοποιηθει</p>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="reaquire">
+                    <label class="form-check-label" for="reaquire">Αυτοματη ενεργοποιηση μολις το παραθυρο επανελθει στο προσκηνιο</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container mt-auto py-3 border-top">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <p class="lead col-12 text-center mb-0 text-primary">Proudly made in 🇬🇷 with <span style='color:red;'>&hearts;</span> and &#x2615;</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
