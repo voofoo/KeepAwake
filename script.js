@@ -10,8 +10,8 @@ const statusDiv = document.getElementById("status");
 const changeUI = (status = "acquired") => {
     const isActive = status === "acquired";
     wakeButton.dataset.status = isActive ? "on" : "off";
-    wakeButton.textContent = `Turn Wake Lock ${isActive ? "OFF" : "ON"}`;
-    statusElem.textContent = `Wake Lock ${isActive ? "is active!" : "has been released."}`;
+    wakeButton.textContent = `Αφυπνιση ${isActive ? "ΑΝΕΝΕΡΓΗ" : "ΕΝΕΡΓΗ"}`;
+    statusElem.textContent = `Η λειτουργια αφυπνισης ${isActive ? "ενεργοποιήθηκε!" : "απενεργοποιήθηκε."}`;
 
     // Update status container styles
     statusDiv.classList.toggle("bg-success", isActive);
@@ -22,10 +22,10 @@ const changeUI = (status = "acquired") => {
 // Test support
 let isSupported = "wakeLock" in navigator;
 if (isSupported) {
-    statusElem.textContent = "Wake Lock API supported 🎉";
+    statusElem.textContent = "Το Wake Lock API υποστηριζεται 🎉";
 } else {
     wakeButton.disabled = true;
-    statusElem.textContent = "Wake lock is not supported by this browser.";
+    statusElem.textContent = "Το Wake lock δεν υποστηριζεται απο τον browser.";
 }
 
 // Wake Lock functionality
@@ -44,7 +44,7 @@ if (isSupported) {
             });
         } catch (err) {
             wakeButton.dataset.status = "off";
-            wakeButton.textContent = "Turn Wake Lock ON";
+            wakeButton.textContent = "Αφυπνιση ΑΝΕΝΕΡΓΗ";
             statusElem.textContent = `${err.name}, ${err.message}`;
         }
     };
