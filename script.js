@@ -10,7 +10,7 @@ const statusDiv = document.getElementById("status");
 const changeUI = (status = "acquired") => {
     const isActive = status === "acquired";
     wakeButton.dataset.status = isActive ? "on" : "off";
-    wakeButton.textContent = `Αφυπνιση ${isActive ? "ΑΝΕΝΕΡΓΗ" : "ΕΝΕΡΓΗ"}`;
+    wakeButton.textContent = `Αφυπνιση ${isActive ? "ΕΝΕΡΓΗ" : "ΑΝΕΝΕΡΓΗ"}`;
     statusElem.textContent = `Η λειτουργια αφυπνισης ${isActive ? "ενεργοποιήθηκε!" : "απενεργοποιήθηκε."}`;
 
     // Update status container styles
