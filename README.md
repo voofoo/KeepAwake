@@ -1,4 +1,6 @@
 # KeepAwake
-A small site to keep your device awake utilizing the [Screen Wake Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API)
+A small page to keep your device awake. 
 
-It's made in Bootstrap and assorted JavaScript
+The page is utilizing the [Screen Wake Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API)
+
+Made with Bootstrap and assorted JavaScript.
